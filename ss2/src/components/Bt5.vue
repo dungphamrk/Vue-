@@ -1,15 +1,24 @@
 <template>
-  <div>
-    <h1>Bài 5</h1>
-    <button @onclick="handleClick">Click me</button>
-  </div>
+    <div>
+        <h2 class="text-[32px]"></h2>
+        <ul>
+            <li>{{ user.name }}</li>
+            <li>{{ user.gender? "Nữ" : "Nam" }}</li>
+            <li>{{ user.email }}</li>   
+            <li>{{ user.birtDate }}</li>
+            
+        </ul>
+    </div>
 </template>
-
 <script setup>
-const handleClick = () => {
-  console.log("had click");
-};
+    const user = {
+        name: "Nguyễn Văn A",
+        gender: 0,
+        birtDate: '06/03/2024',
+        email: "nva@gmail.com",
+        address: "Thanh Xuân, Hà Nội"
+    }
 </script>
-
 <style>
+    
 </style>
