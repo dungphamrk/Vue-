@@ -1,10 +1,9 @@
 <template>
     <div>
-        <h1>Bài 1</h1>
-        <button @click="changeTrue">ẩn </button>
-        <button @click="changeFalse">Hiển thị</button>
-        <p v-if="isVisible"></p>
-        <p v-else>Rikkeiacademy</p>
+        <h1>Bài 4</h1>
+        <button  @click="changeTrue">Hiển thị</button>
+        <button  @click="changeFalse">Ẩn</button>
+        <p v-show="isVisible">Thông báo : <b>yoh welcome</b></p>
     </div>
 </template>
 

@@ -1,47 +1,30 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <Bt1/>
+    <Bt2/>
+    <Bt3/>
+    <Bt4/>
+    <Bt5/>
+    <Bt7/>
+    <Bt8/>
+    <Bt9/>
+    <Bt10/>
   </main>
 </template>
+<script setup>
+import Bt1 from './components/Bt1.vue';
+import Bt10 from './components/Bt10.vue';
+import Bt2 from './components/Bt2.vue';
+import Bt3 from './components/Bt3.vue';
+import Bt4 from './components/Bt4.vue';
+import Bt5 from './components/Bt5.vue';
+import Bt7 from './components/Bt7.vue';
+import Bt8 from './components/Bt8.vue';
+import Bt9 from './components/Bt9.vue';
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+<style>
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
