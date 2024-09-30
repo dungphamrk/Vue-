@@ -1,47 +1,31 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <ParentComponent />
+    <ProductParent />
+    <CountParent />
+    <TodoItem />
+    <BT5/>
+    <BT6/>
+    <MessageParent/>
+    <BT8/>
+    <BT9/>
+    <BT10/>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script setup>
+import ParentComponent from "./components/BT1/ParentComponent.vue";
+import BT10 from "./components/BT10/BT10.vue";
+import ProductParent from "./components/BT2/ProductParent.vue";
+import CountParent from "./components/BT3/CountParent.vue";
+import TodoItem from "./components/BT4/TodoItem.vue";
+import BT5 from "./components/BT5.vue";
+import BT6 from "./components/BT6.vue";
+import MessageParent from "./components/BT7/MessageParent.vue";
+import BT8 from "./components/BT8/BT8.vue";
+import BT9 from "./components/BT9/BT9.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+<style>
 </style>
