@@ -12,7 +12,6 @@
             v-model="email"
             placeholder="Nhập email"
           />
-          <span v-if="errors.email" class="error">{{ errors.email }}</span>
         </div>
 
         <div class="form-group">
@@ -23,9 +22,7 @@
             v-model="password"
             placeholder="Nhập mật khẩu"
           />
-          <span v-if="errors.password" class="error">{{
-            errors.password
-          }}</span>
+        
         </div>
 
         <button type="submit" class="submit-button">Đăng nhập</button>
