@@ -198,7 +198,6 @@
 import { ref, computed } from "vue";
 // Data
 const employees = ref(JSON.parse(localStorage.getItem("employess")) || []);
-// Pagination and state management
 const searchQuery = ref("");
 const recordsPerPage = ref(10);
 const currentPage = ref(1);
@@ -312,16 +311,6 @@ const refresh = () => {
   searchQuery.value = "";
 };
 
-const prevPage = () => {
-  if (currentPage.value > 1) currentPage.value -= 1;
-};
 
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) currentPage.value += 1;
-};
-
-const goToPage = (page) => {
-  currentPage.value = page;
-};
 </script>
 
