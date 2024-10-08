@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Import specific icons from Font Awesome
 import { faArrowsRotate, faXmark } from '@fortawesome/free-solid-svg-icons'
-
+                                                                                                                                  
 // Add icons to the library
 library.add(faArrowsRotate, faXmark)
 createApp(App)
