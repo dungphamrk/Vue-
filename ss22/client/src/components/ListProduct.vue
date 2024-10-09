@@ -37,19 +37,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="(product, index) in filteredProducts"
-            :key="product.id"
-          >
+          <tr v-for="(product, index) in filteredProducts" :key="product.id">
             <td>{{ index + 1 }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.quantity }}</td>
             <td>{{ product.price }}</td>
             <td>
-              <span @click="editProduct(product)" class="button button-edit">Sửa</span>
+              <span @click="editProduct(product)" class="button button-edit"
+                >Sửa</span
+              >
             </td>
             <td>
-              <span @click="confirmDelete(product)" class="button button-delete">Xóa</span>
+              <span @click="confirmDelete(product)" class="button button-delete"
+                >Xóa</span
+              >
             </td>
           </tr>
         </tbody>
@@ -68,7 +69,9 @@
             <a class="page-link" href="#" @click.prevent="prevPage">Previous</a>
           </li>
           <li class="page-item" v-for="page in totalPages" :key="page">
-            <a class="page-link" href="#" @click.prevent="goToPage(page)">{{ page }}</a>
+            <a class="page-link" href="#" @click.prevent="goToPage(page)">{{
+              page
+            }}</a>
           </li>
           <li class="page-item">
             <a class="page-link" href="#" @click.prevent="nextPage">Next</a>
@@ -82,7 +85,9 @@
       <form @submit.prevent="submitForm" class="form">
         <div class="d-flex justify-content-between align-items-center">
           <h4>
-            {{ formMode === "add" ? "Thêm mới sản phẩm" : "Chỉnh sửa sản phẩm" }}
+            {{
+              formMode === "add" ? "Thêm mới sản phẩm" : "Chỉnh sửa sản phẩm"
+            }}
           </h4>
           <font-awesome-icon icon="xmark" @click="closeForm" />
         </div>
@@ -94,7 +99,9 @@
             type="text"
             class="form-control"
           />
-          <small v-if="errors.name" class="text-danger">{{ errors.name }}</small>
+          <small v-if="errors.name" class="text-danger">{{
+            errors.name
+          }}</small>
         </div>
         <div>
           <label class="form-label" for="quantity">Số lượng</label>
@@ -104,7 +111,9 @@
             type="number"
             class="form-control"
           />
-          <small v-if="errors.quantity" class="text-danger">{{ errors.quantity }}</small>
+          <small v-if="errors.quantity" class="text-danger">{{
+            errors.quantity
+          }}</small>
         </div>
         <div>
           <label class="form-label" for="price">Giá sản phẩm</label>
@@ -114,7 +123,9 @@
             type="number"
             class="form-control"
           />
-          <small v-if="errors.price" class="text-danger">{{ errors.price }}</small>
+          <small v-if="errors.price" class="text-danger">{{
+            errors.price
+          }}</small>
         </div>
         <div>
           <button class="w-100 btn btn-primary">
@@ -136,16 +147,16 @@
         </div>
         <div class="modal-footer-custom">
           <button class="btn btn-light" @click="closeDeleteModal">Hủy</button>
-          <button class="btn btn-danger" @click="deleteProduct">Xác nhận</button>
+          <button class="btn btn-danger" @click="deleteProduct">
+            Xác nhận
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import axios from "axios"; 
 
 const products = ref([]);
 const searchQuery = ref("");
@@ -159,8 +170,12 @@ const errors = ref({});
 
 const fetchProducts = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/products");
-    products.value = response.data;
+    const response = await fetch("http://localhost:3000/products");
+    if (response.ok) {
+      products.value = await response.json();
+    } else {
+      console.error("Failed to fetch products");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -173,7 +188,9 @@ const filteredProducts = computed(() => {
   );
 });
 
-const totalPages = computed(() => Math.ceil(filteredProducts.value.length / recordsPerPage.value));
+const totalPages = computed(() =>
+  Math.ceil(filteredProducts.value.length / recordsPerPage.value)
+);
 
 const validateForm = () => {
   errors.value = {};
@@ -191,9 +208,20 @@ const validateForm = () => {
 
 const addProduct = async () => {
   try {
-    const response = await axios.post("http://localhost:3000/products", form.value);
-    products.value.push(response.data);
-    closeForm();
+    const response = await fetch("http://localhost:3000/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form.value),
+    });
+    if (response.ok) {
+      const newProduct = await response.json();
+      products.value.push(newProduct);
+      closeForm();
+    } else {
+      console.error("Failed to add product");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -201,10 +229,25 @@ const addProduct = async () => {
 
 const updateProduct = async () => {
   try {
-    await axios.put(`http://localhost:3000/products/${form.value.id}`, form.value);
-    const index = products.value.findIndex(product => product.id === form.value.id);
-    if (index !== -1) products.value[index] = { ...form.value };
-    closeForm();
+    const response = await fetch(
+      `http://localhost:3000/products/${form.value.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form.value),
+      }
+    );
+    if (response.ok) {
+      const index = products.value.findIndex(
+        (product) => product.id === form.value.id
+      );
+      if (index !== -1) products.value[index] = { ...form.value };
+      closeForm();
+    } else {
+      console.error("Failed to update product");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -239,9 +282,20 @@ const editProduct = (product) => {
 
 const deleteProduct = async () => {
   try {
-    await axios.delete(`http://localhost:3000/products/${currentProduct.value.id}`);
-    products.value = products.value.filter((prod) => prod.id !== currentProduct.value.id);
-    closeDeleteModal();
+    const response = await fetch(
+      `http://localhost:3000/products/${currentProduct.value.id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      products.value = products.value.filter(
+        (prod) => prod.id !== currentProduct.value.id
+      );
+      closeDeleteModal();
+    } else {
+      console.error("Failed to delete product");
+    }
   } catch (error) {
     console.error(error);
   }

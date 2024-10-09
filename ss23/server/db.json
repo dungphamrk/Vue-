@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "student_name": "Nguyễn Văn A",
+      "email": "nguyenvana@example.com",
+      "address": "123 Đường Lý Thường Kiệt, Quận 10, TP.HCM"
+    },
+    {
+      "id": 2,
+      "student_name": "Trần Thị B",
+      "email": "tranthib@example.com",
+      "address": "456 Đường Phạm Văn Đồng, Quận Thủ Đức, TP.HCM"
+    },
+    {
+      "id": 3,
+      "student_name": "Lê Văn C",
+      "email": "levanc@example.com",
+      "address": "789 Đường Nguyễn Huệ, Quận 1, TP.HCM"
+    },
+    {
+      "id": 4,
+      "student_name": "Phạm Thị D",
+      "email": "phamthid@example.com",
+      "address": "101 Đường Trường Sa, Quận Bình Thạnh, TP.HCM"
+    },
+    {
+      "id": 5,
+      "student_name": "Đỗ Văn E",
+      "email": "dovane@example.com",
+      "address": "202 Đường Hoàng Diệu, Quận 4, TP.HCM"
+    }
+  ]
+}
