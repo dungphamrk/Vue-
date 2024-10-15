@@ -1,0 +1,53 @@
+{
+  "employees": [
+    {
+      "id": 2,
+      "name": "Trần Thị B",
+      "birthDate": "23/11/0323",
+      "email": "tranthib@example.com",
+      "address": "456 Đường Phạm Văn Đồng, Quận Gò Vấp, TP. Hồ Chí Minh"
+    },
+    {
+      "id": 3,
+      "birthDate": "31/12/0023",
+      "name": "Lê Văn C",
+      "email": "levanc@example.com",
+      "address": "789 Đường Nguyễn Văn Cừ, Quận 5, TP. Hồ Chí Minh"
+    },
+    {
+      "id": 4,
+      "name": "Phạm Thị D",
+      "birthDate": "31/12/0023",
+      "email": "phamthid@example.com",
+      "address": "101 Đường Lý Thường Kiệt, Quận Tân Bình, TP. Hồ Chí Minh"
+    },
+    {
+      "id": 5,
+      "name": "Hoàng Minh E",
+      "birthDate": "31/12/0023",
+      "email": "hoangminhe@example.com",
+      "address": "102 Đường Hoàng Sa, Quận 3, TP. Hồ Chí Minh"
+    },
+    {
+      "name": "dungpham197",
+      "email": "dungpham197rk@gmail.com",
+      "address": "tran phu",
+      "birthDate": "31/12/0023",
+      "id": 6
+    },
+    {
+      "name": "dungpham197111",
+      "email": "dungpham19117rk@gmail.com",
+      "address": "12333",
+      "birthDate": "31/12/0023",
+      "id": 7
+    },
+    {
+      "name": "dungpham197111",
+      "email": "dungpham19117rk@gmail.com",
+      "address": "tran phu",
+      "birthDate": "22/12/0323",
+      "id": 8
+    }
+  ]
+}

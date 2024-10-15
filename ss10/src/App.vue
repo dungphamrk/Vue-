@@ -1,5 +1,5 @@
   <template>
-    <div class="w-[80%] m-auto mt-4 h-[100vh]">
+    <div class="w-[96%] m-auto mt-4 h-[100vh]">
       <main class="main">
         <!-- Header -->
         <header class="d-flex justify-content-between mb-3">
